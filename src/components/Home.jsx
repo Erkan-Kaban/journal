@@ -1,8 +1,16 @@
 import React from 'react'
+import { Link } from "react-router-dom"
 
-const Home = () => {
+const Home = ({ entries }) => {
   return (
-    <div>Home</div>
+    <>
+      <h1>Journal Entries</h1>
+      {entries.map((entry, index) => 
+      <p key={index}>
+        <Link to={`/entry/${index}`}>{entry.content}</Link>
+      </p>
+      )}
+    </>
   )
 }
 

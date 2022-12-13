@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Route, useParams } from "react-router-dom"
+import { useParams, useNavigate } from "react-router-dom"
 
 const NewEntry = ({ setEntries, entries }) => {
     // use params gets :category from app route path /entry/new/:category
@@ -7,16 +7,19 @@ const NewEntry = ({ setEntries, entries }) => {
     // destructuring useParams to include category here
     const { category } = useParams()
     const [entry, setEntry ] = useState('')
+    const nav = useNavigate()
 
     function submit(event) {
         event.preventDefault()
+        const id = entries.length
         // Add a new entry
         const newEntry = {
             category: category,
             content: entry
         }
         setEntries([...entries, newEntry])
-    }
+        nav(`/entry/${id}`)
+    }   
     
     return (
         // <h2>New Entry {params.category} category</h2>

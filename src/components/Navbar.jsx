@@ -21,7 +21,9 @@ const Navbar = () => {
             <Link className="nav-link text-light" to="/category">Select Category</Link>
           </li>
           <li className="nav-item">
-            <Link className="nav-link text-light" to="/entry/new">New Entry</Link>
+            <Link className="nav-link text-light" to="/entry/0">
+              Show Entry 0
+            </Link>
           </li>
         </ul>
       </div>
